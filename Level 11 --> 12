@@ -1,26 +1,27 @@
-LEVEL 11 → 12 — DECODING ROT13
+# Level 11 → 12 — Decoding ROT13
 
+## Level Goal
+Decode the ROT13-encoded content of `data.txt` to find the password.
 
-WHAT THIS LEVEL IS ABOUT :
+## Description
+All letters in `data.txt` have been shifted 13 positions — the ROT13 substitution cipher. Because the alphabet has 26 letters, ROT13 is its own inverse. This level uses the `tr` (translate) command for character mapping.
 
-All letters in data.txt have been shifted 13 positions — the ROT13 substitution cipher. Because the alphabet has 26 letters, ROT13 is its own inverse. This level uses the tr (translate) command for character mapping.
-
-
-APPROACH : 
-
+## Approach
 Reading the file revealed the ROT13-encoded string. I decoded it using:
+
+```bash
 cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+```
 
-Command Breakdown
+## Command Breakdown
 
-Part              Meaning
-tr                Translate/substitute characters 
-'A-Za-z'          Original character set (all letters)
-'N-ZA-Mn-za-m'    ROT13 mapping — shifts each letter by 13
+| Part | Meaning |
+|---|---|
+| `tr` | Translate/substitute characters |
+| `'A-Za-z'` | Original character set (all letters) |
+| `'N-ZA-Mn-za-m'` | ROT13 mapping — shifts each letter by 13 |
 
-Password obtained. [Not shared per OverTheWire rules]
+> Password obtained. [Not shared per OverTheWire rules]
 
-
-KEY TAKEAWAY : 
-
-tr is a versatile character translation tool. ROT13 appears frequently in CTFs as lightweight obfuscation. Understanding substitution ciphers is foundational for classical cryptography and more complex cipher analysis.
+## Key Takeaway
+`tr` is a versatile character translation tool. ROT13 appears frequently in CTFs as lightweight obfuscation. Understanding substitution ciphers is foundational for classical cryptography and more complex cipher analysis.
