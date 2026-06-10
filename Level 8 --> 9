@@ -1,12 +1,13 @@
-# Level 8 → 9 — Finding the Unique Line with sort and uniq
+# LEVEL 8 → 9 — FINDING THE UNIQUE LINE WITH sort AND uniq
 
-## Level Goal
+
+## LEVEL GOAL
 Find the only line of text in `data.txt` that occurs exactly once.
 
-## Description
+## DESCRIPTION
 The file contains many repeated lines. This level introduces the Unix pipeline pattern — chaining commands so the output of one feeds the input of the next.
 
-## Approach
+## APPROACH
 The solution required two commands chained together:
 
 ```bash
@@ -17,5 +18,5 @@ sort data.txt | uniq -u
 
 > Password obtained. [Not shared per OverTheWire rules]
 
-## Key Takeaway
+## KEY TAKEAWAY
 `uniq` only compares adjacent lines — sorting first is not optional. This pipeline is a classic pattern applicable to log deduplication, frequency analysis, and identifying anomalous entries in large datasets.
