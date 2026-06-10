@@ -1,0 +1,20 @@
+LEVEL 8 → 9 — FINDING THE UNIQUE LINE WITH sort AND uniq
+
+
+WHAT THIS LEVEL IS ABOUT : 
+
+The file data.txt contains many repeated lines, and the password appears exactly once. This level introduces the Unix pipeline pattern — chaining commands so the output of one feeds the input of the next.
+
+
+APPROACH : 
+
+The solution required two commands chained together:
+sort data.txt | uniq -u
+sort arranges all lines alphabetically so duplicates become adjacent. uniq -u then prints only lines that appear exactly once.
+
+Password obtained. [Not shared per OverTheWire rules]
+
+
+KEY TAKEAWAY : 
+
+uniq only compares adjacent lines — sorting first is not optional. This pipeline is a classic pattern applicable to log deduplication, frequency analysis, and identifying anomalous entries in large datasets.
