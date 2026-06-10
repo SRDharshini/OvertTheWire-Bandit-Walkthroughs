@@ -1,66 +1,73 @@
-LEVEL 12 → 13 — DECOMPRESSING A MULTI-LAYER COMPRESSED FILE
+# Level 12 → 13 — Decompressing a Multi-Layer Compressed File
 
+## Level Goal
+Reverse a hexdump and decompress a file that has been compressed multiple times using different formats.
 
-WHAT THIS LEVEL IS ABOUT : 
+## Description
+`data.txt` is a hexdump of a file compressed repeatedly using gzip, bzip2, and tar in alternating layers. The task requires identifying each layer and extracting until plain text is reached. This level builds methodical problem-solving habits under ambiguity.
 
-data.txt is a hexdump of a file compressed repeatedly using gzip, bzip2, and tar in alternating layers. The task requires identifying each layer, renaming the file with the correct extension, and extracting until plain text is reached. This level builds methodical problem-solving habits under ambiguity.
+## Approach
 
+**Step 1 — Create a working directory in /tmp**
 
-APPROACH : 
-
-Step 1 — Create a working directory in /tmp
+```bash
 cd /tmp
 mktemp -d
 cd /tmp/tmp.XXXXXXXX
 cp ~/data.txt .
+```
 
-Step 2 — Reverse the hexdump back to binary
+**Step 2 — Reverse the hexdump back to binary**
+
+```bash
 xxd -r data.txt > data
+```
 
-Step 3 — Iteratively identify and extract
-I ran file data after every extraction step to determine the next format:
+**Step 3 — Iteratively identify and extract**
 
-file data          → gzip compressed data
+Run `file` after every extraction step to determine the next format:
+
+```bash
+file data          # → gzip compressed data
 mv data data.gz && gunzip data.gz
 
-file data          → bzip2 compressed data
+file data          # → bzip2 compressed data
 mv data data.bz2 && bunzip2 data.bz2
 
-file data          → gzip compressed data
+file data          # → gzip compressed data
 mv data data.gz && gunzip data.gz
 
-file data          → POSIX tar archive
+file data          # → POSIX tar archive
 mv data data.tar && tar -xf data.tar
 
-file data5.bin     → POSIX tar archive
+file data5.bin     # → POSIX tar archive
 mv data5.bin data5.tar && tar -xf data5.tar
 
-file data6.bin     → bzip2 compressed data
+file data6.bin     # → bzip2 compressed data
 mv data6.bin data6.bz2 && bunzip2 data6.bz2
 
-file data6         → POSIX tar archive
+file data6         # → POSIX tar archive
 mv data6 data6.tar && tar -xf data6.tar
 
-file data8.bin     → gzip compressed data
+file data8.bin     # → gzip compressed data
 mv data8.bin data.gz && gunzip data.gz
 
-file data          → ASCII text
-cat data           → Password obtained
+file data          # → ASCII text
+cat data           # → Password
+```
 
+## Commands Learned
 
-Commands Learned
+| Command | Purpose |
+|---|---|
+| `xxd -r` | Reverse hexdump to binary |
+| `file` | Identify file type from content |
+| `gunzip` | Extract gzip archives |
+| `bunzip2` | Extract bzip2 archives |
+| `tar -xf` | Extract tar archives |
+| `mktemp -d` | Create a secure temporary directory |
 
-Command            Purposexxd 
--r                 Reverse hexdump to binary
-file               Identify file type from content
-gunzip             Extract gzip archives  
-bunzip2            Extract bzip2 archives
-tar -xf            Extract tar archives
-mktemp -d          Create a secure temporary directory
+> Password obtained. [Not shared per OverTheWire rules]
 
-Password obtained. [Not shared per OverTheWire rules]
-
-
-KEY TAKEAWAY :
-
-The file command is the anchor for this entire process. Never assume a file's type from its name — always verify from content. This methodology applies directly to malware analysis, incident response, and CTF forensics challenges.
+## Key Takeaway
+The `file` command is the anchor for this entire process. Never assume a file's type from its name — always verify from content. This methodology applies directly to malware analysis, incident response, and CTF forensics challenges.
