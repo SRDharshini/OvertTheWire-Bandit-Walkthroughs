@@ -1,0 +1,29 @@
+LEVEL 5 → 6 — USING FIND WITH PROPERTY FILTERS
+
+
+WHAT THIS LEVEL IS ABOUT : 
+
+The password is hidden somewhere under the inhere directory across 20 subdirectories. It must meet three criteria: human-readable, exactly 1033 bytes in size, and not executable. This level introduces the find command — one of the most powerful file-search utilities in Linux.
+
+
+APPROACH : 
+
+I first tried the manual approach, checking each maybehere directory with cd and ls -la. This quickly demonstrated why an automated approach is necessary. The correct solution was:
+find . -type f -size 1033c ! -executable
+This returned a single result: ./maybehere07/.file2. I read it with:
+cat ./maybehere07/.file2
+
+Command Breakdown
+
+Flag              Meaning
+find .            Search from current directory
+-type f           Match files only (not directories)
+-size 1033c       Exactly 1033 bytes (c = bytes)
+! -executable     Exclude executable files
+
+Password obtained. [Not shared per OverTheWire rules]
+
+
+KEY TAKEAWAY : 
+
+find is indispensable for real-world tasks like locating misconfigured files, hunting for SUID binaries, or identifying recently modified files during an investigation.
