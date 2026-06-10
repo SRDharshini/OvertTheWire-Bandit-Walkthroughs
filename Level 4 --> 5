@@ -1,12 +1,13 @@
-# Level 4 → 5 — Identifying the Human-Readable File
+# LEVEL 4 → 5 — IDENTIFYING THE HUMAN-READABLE FILE
 
-## Level Goal
+
+## LEVEL GOAL
 Find the only human-readable file among ten files in the `inhere` directory.
 
-## Description
+## DESCRIPTION
 The `inhere` directory contains ten files (`-file00` through `-file09`), only one of which contains human-readable text. The `file` command identifies file content based on magic bytes rather than file extensions.
 
-## Approach
+## APPROACH
 My initial approach was manual — opening each file one by one:
 
 ```bash
@@ -29,5 +30,5 @@ cat ./-file07
 
 > Password obtained. [Not shared per OverTheWire rules]
 
-## Key Takeaway
+## KEY TAKEAWAY
 Never rely on file extensions to determine file type. The `file` command reads magic bytes to determine a file's true format. This is fundamental in malware analysis and digital forensics.
