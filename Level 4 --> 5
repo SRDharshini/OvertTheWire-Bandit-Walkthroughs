@@ -1,21 +1,33 @@
-LEVEL 4 → 5 — IDENTIFYING THE HUMAN-READABLE FILE
+# Level 4 → 5 — Identifying the Human-Readable File
 
+## Level Goal
+Find the only human-readable file among ten files in the `inhere` directory.
 
-WHAT THIS LEVEL IS ABOUT : 
+## Description
+The `inhere` directory contains ten files (`-file00` through `-file09`), only one of which contains human-readable text. The `file` command identifies file content based on magic bytes rather than file extensions.
 
-The inhere directory contains ten files (-file00 through -file09), only one of which contains human-readable text. The rest are binary. This level introduces the file command, which identifies file content based on magic bytes rather than file extensions.
+## Approach
+My initial approach was manual — opening each file one by one:
 
+```bash
+cat ./-file00
+cat ./-file01
+# and so on...
+```
 
-APPROACH : 
+Most returned garbled binary output. The efficient solution was to run `file` on all files at once using shell globbing:
 
-My initial approach was manual — opening each file one by one with cat ./-file00, cat ./-file01, and so on. Most returned garbled binary output. The efficient solution was to run file on all files at once using shell globbing:
+```bash
 file ./*
-This immediately revealed that -file07 was the only one identified as ASCII text. I then read it:
+```
+
+This immediately revealed that `-file07` was the only one identified as ASCII text. I then read it:
+
+```bash
 cat ./-file07
+```
 
-Password obtained. [Not shared per OverTheWire rules]
+> Password obtained. [Not shared per OverTheWire rules]
 
-
-KEY TAKEAWAY :
-
-Never rely on file extensions to determine file type — they can be changed or absent. The file command reads magic bytes to determine a file's true format. This is fundamental in malware analysis and digital forensics.
+## Key Takeaway
+Never rely on file extensions to determine file type. The `file` command reads magic bytes to determine a file's true format. This is fundamental in malware analysis and digital forensics.
