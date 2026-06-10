@@ -1,0 +1,32 @@
+LEVEL 15 → 16 — SSL/TLS ENCRYPTED COMMUNICATION WITH OPENSSL
+
+
+WHAT THIS LEVEL IS ABOUT : 
+
+Similar to the previous level, but the service on localhost:30001 uses SSL/TLS encryption. Plain tools like nc will fail because they send unencrypted data. This level introduces openssl s_client — a tool for manually interacting with encrypted services.
+
+
+APPROACH : 
+
+I first tried Netcat, which produced garbled output because the server expected a TLS handshake. The correct tool was:
+openssl s_client -connect localhost:30001
+After the encrypted connection was established, I pasted the current level's password and pressed Enter. The server responded with the next password.
+
+Command Breakdown
+Part                   Meaning
+openssl                Cryptographic operations toolkit
+s_client               SSL/TLS client mode
+-connect               Specify target host and port
+localhost:30001        Target encrypted service
+
+Why Other Methods Fail
+Tool                    Why It Fails
+nc localhost 30001      Sends plain text — server expects TLS handshake
+telnet localhost 30001  Unencrypted protocol — incompatible with TLS
+
+Password obtained. [Not shared per OverTheWire rules]
+
+
+KEY TAKEAWAY : 
+
+Not all services accept plain TCP communication. TLS is the encryption layer behind HTTPS, secure email, and most modern network services. openssl s_client is widely used in security testing to manually inspect and interact with encrypted services — for example, verifying a server's certificate or testing for SSL misconfigurations.
