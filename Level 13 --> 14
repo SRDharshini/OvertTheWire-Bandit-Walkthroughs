@@ -1,12 +1,13 @@
-# Level 13 → 14 — SSH Authentication with a Private Key
+# LEVEL 13 → 14 — SSH AUTHENTICATION WITH A PRIVATE KEY
 
-## Level Goal
+
+## LEVEL GOAL
 Use a private SSH key file to log into `bandit14` and read the password from `/etc/bandit_pass/bandit14`.
 
-## Description
+## DESCRIPTION
 Instead of providing a password, this level gives you a private SSH key file. SSH key-based authentication is the standard in professional environments — used by system administrators, cloud engineers, and DevOps teams to access Linux servers securely.
 
-## Approach
+## APPROACH
 
 **Step 1 — Inspect the home directory**
 
@@ -35,9 +36,9 @@ SSH will refuse to use a private key with insecure permissions. `chmod 600` rest
 ## Permission Breakdown
 
 | Value | Meaning |
-|---|---|
-| `6` (owner) | read + write |
-| `0` (group) | no permission |
+
+| `6` (owner)  | read + write  |
+| `0` (group)  | no permission |
 | `0` (others) | no permission |
 
 **Step 4 — Log in using the key**
@@ -54,5 +55,5 @@ cat /etc/bandit_pass/bandit14
 
 > Password obtained. [Not shared per OverTheWire rules]
 
-## Key Takeaway
+## KEY TAKEAWAY
 SSH key pairs work on asymmetric cryptography — the server holds the public key, you hold the private key. If they match, access is granted without a password. This concept applies directly to AWS EC2 access, GitHub SSH authentication, and production server management.
