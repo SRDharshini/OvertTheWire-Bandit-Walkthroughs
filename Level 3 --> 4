@@ -1,0 +1,22 @@
+LEVEL 3 → 4 — DISCOVERING A HIDDEN FILE
+
+
+WHAT THIS LEVEL IS ABOUT : 
+
+In Linux, any file or directory prefixed with a dot (.) is hidden from standard directory listings. This level teaches the use of the -a flag with ls to reveal hidden files — a skill directly applicable to system forensics and investigation.
+
+
+APPROACH : 
+
+After logging in as bandit3, I navigated into the inhere directory:
+cd inhere
+Running ls showed nothing. I then used the -a flag to reveal hidden files:
+ls -a
+A file named ...Hiding-From-You appeared. I read it with:
+cat ./...Hiding-From-You
+
+Password obtained. [Not shared per OverTheWire rules]
+
+
+KEY TAKEAWAY : 
+ls -la is the most informative listing command — it shows hidden files, permissions, ownership, and sizes simultaneously. Attackers and investigators both rely on this to surface files that standard views miss.
