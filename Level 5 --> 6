@@ -1,12 +1,13 @@
-# Level 5 → 6 — Using find with Property Filters
+# LEVEL 5 → 6 — USING FIND WITH PROPERTY FILTERS
 
-## Level Goal
+
+## LEVEL GOAL
 Find the password file inside `inhere` that is human-readable, exactly 1033 bytes in size, and not executable.
 
-## Description
+## DESCRIPTION
 This level introduces the `find` command — one of the most powerful file-search utilities in Linux. It allows filtering files by size, type, permissions, and more.
 
-## Approach
+## APPROACH
 I first tried the manual approach — checking each `maybehere` directory one by one. This quickly demonstrated why automation is necessary. The correct solution was:
 
 ```bash
@@ -30,5 +31,5 @@ cat ./maybehere07/.file2
 
 > Password obtained. [Not shared per OverTheWire rules]
 
-## Key Takeaway
+## KEY TAKEAWAY
 `find` is indispensable for real-world tasks like locating misconfigured files, hunting for SUID binaries, or identifying recently modified files during an investigation.
