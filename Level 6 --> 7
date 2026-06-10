@@ -1,12 +1,13 @@
-# Level 6 → 7 — Server-Wide Search with Ownership Filters
+# LEVEL 6 → 7 — SERVER-WIDE SEARCH WITH OWNERSHIP FILTERS
 
-## Level Goal
+
+## LEVEL GOAL
 Find the password file stored somewhere on the server, owned by user `bandit7`, group `bandit6`, and exactly 33 bytes in size.
 
-## Description
+## DESCRIPTION
 This level extends `find` to a filesystem-wide search and introduces stderr redirection to filter noisy permission-denied errors from the output.
 
-## Approach
+## APPROACH
 I ran a full-server search from the root directory:
 
 ```bash
@@ -27,5 +28,5 @@ cat /var/lib/dpkg/info/bandit7.password
 
 > Password obtained. [Not shared per OverTheWire rules]
 
-## Key Takeaway
+## KEY TAKEAWAY
 `2>/dev/null` suppresses noise while keeping real results visible. The `-user` and `-group` flags are directly applicable to privilege escalation enumeration on real systems.
