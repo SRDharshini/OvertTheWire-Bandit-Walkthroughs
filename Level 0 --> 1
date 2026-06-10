@@ -1,0 +1,22 @@
+LEVEL 0 → 1 — READING A FILE IN THE HOME DIRECTORY
+
+
+WHAT THIS LEVEL IS ABOUT:
+
+The password for Level 1 is stored in a file called readme in the home directory. This level introduces the two most fundamental Linux commands: ls (list directory contents) and cat (display file contents).
+
+
+APPROACH:
+
+After logging in, I listed the home directory contents:
+ls
+The readme file was present. I read it with:
+cat readme
+The file contained a welcome message followed by the password.
+
+Password obtained. [Not shared per OverTheWire rules]
+
+
+KEYTAKEAWAY:
+
+Every subsequent level follows this same pattern — locate, then read. ls and cat are the starting point for nearly every Linux investigation.
