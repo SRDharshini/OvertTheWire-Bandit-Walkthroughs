@@ -1,12 +1,13 @@
-# Level 0 — Initial SSH Connection
+# LEVEL 0 - INITIAL SSH CONNECTION
 
-## Level Goal
+
+## LEVEL GOAL
 Establish an SSH connection to the Bandit game server.
 
-## Description
+## DESCRIPTION
 This is the entry point to the Bandit wargame. SSH (Secure Shell) is a cryptographic protocol for securely accessing remote machines — a foundational skill for any Linux or security professional.
 
-## Approach
+## APPROACH
 The first step was to resolve the server's IP address:
 
 ```bash
@@ -21,5 +22,5 @@ ssh bandit0@bandit.labs.overthewire.org -p 2220
 
 Entered `bandit0` as the password when prompted. Connection established successfully.
 
-## Key Takeaway
+## KEY TAKEAWAY
 The `-p 2220` flag overrides SSH's default port 22. Every level in Bandit uses this port.
