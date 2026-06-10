@@ -1,20 +1,21 @@
-LEVEL 9 → 10 — EXTRACTING READABLE STRINGS FROM BINARY DATA
+# Level 9 → 10 — Extracting Readable Strings from Binary Data
 
+## Level Goal
+Find the password hidden in `data.txt` among human-readable strings, preceded by several `=` characters.
 
-WHAT THIS LEVEL IS ABOUT :
+## Description
+`data.txt` is mostly binary data. The `strings` command extracts all human-readable sequences from binary files — a staple tool in reverse engineering and malware analysis.
 
-data.txt is mostly binary data with the password hidden among printable strings, preceded by several = characters. The strings command extracts all human-readable sequences from binary files — a staple tool in reverse engineering and malware analysis.
+## Approach
+Running `cat data.txt` produced mostly garbled output. The correct approach was:
 
-
-APPROACH : 
-
-Running cat data.txt produced mostly garbled output. The correct approach was:
+```bash
 strings data.txt | grep "=="
+```
+
 This filtered down to the relevant lines and exposed the password immediately.
 
-Password obtained. [Not shared per OverTheWire rules]
+> Password obtained. [Not shared per OverTheWire rules]
 
-
-KEY TAKEAWAY : 
-
-strings scans for sequences of printable characters (default: 4 or more). It is one of the first tools used when examining an unknown binary, firmware image, or suspicious executable.
+## Key Takeaway
+`strings` scans for sequences of printable characters (default: 4 or more). It is one of the first tools used when examining an unknown binary, firmware image, or suspicious executable.
