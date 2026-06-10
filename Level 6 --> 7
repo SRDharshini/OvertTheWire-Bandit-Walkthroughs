@@ -1,0 +1,23 @@
+LEVEL 6 → 7 — SERVER-WIDE SEARCH WITH OWNERSHIP FILTERS
+
+
+WHAT THIS LEVEL IS ABOUT : 
+
+The password exists somewhere on the entire server. It is owned by user bandit7, owned by group bandit6, and is 33 bytes in size. This level extends find to a filesystem-wide search and introduces stderr redirection to filter noisy output.
+
+
+APPROACH : 
+
+I ran a full-server search from the root directory:
+find / -user bandit7 -group bandit6 -size 33c 2>/dev/null
+Without 2>/dev/null, the output was flooded with "Permission denied" errors. Redirecting stderr to /dev/null cleaned the results, revealing a single match:
+/var/lib/dpkg/info/bandit7.password
+I read the file directly:
+cat /var/lib/dpkg/info/bandit7.password
+
+Password obtained. [Not shared per OverTheWire rules]
+
+
+KEY TAKEAWAY : 
+
+2>/dev/null is one of the most practical shell techniques — it suppresses noise while keeping real results visible. The -user and -group flags are directly applicable to privilege escalation enumeration on real systems.
