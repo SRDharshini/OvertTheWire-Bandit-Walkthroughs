@@ -1,12 +1,13 @@
-# Level 10 → 11 — Decoding Base64
+# LEVEL 10 → 11 — DECODING BASE64
 
-## Level Goal
+
+## LEVEL GOAL
 Decode the Base64-encoded content of `data.txt` to find the password.
 
-## Description
+## DESCRIPTION
 Base64 is an encoding scheme that converts binary data into printable ASCII characters. It is widely used in JWTs, email, and web APIs. This level teaches decoding using the `base64` command.
 
-## Approach
+## APPROACH
 Reading the file revealed a long Base64 string. I decoded it two ways:
 
 ```bash
@@ -21,5 +22,5 @@ Both returned the same decoded sentence containing the password.
 
 > Password obtained. [Not shared per OverTheWire rules]
 
-## Key Takeaway
+## KEY TAKEAWAY
 Base64 is an encoding scheme, not encryption — it provides zero confidentiality and is trivially reversed. Recognizing Base64 strings (they often end with `=` or `==` padding) is a useful skill in CTF challenges, log analysis, and web security testing.
