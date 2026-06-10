@@ -1,0 +1,30 @@
+LEVEL 14 → 15 — SENDING DATA TO A TCP PORT WITH NETCAT
+
+
+WHAT THIS LEVEL IS ABOUT : 
+
+The password for the next level is obtained by submitting the current password to a service listening on localhost:30000. This involves direct TCP communication rather than file reading, introducing nc (Netcat) — a foundational tool in networking and security.
+
+
+APPROACH :
+
+I initially attempted to SSH into port 30000, which failed — port 30000 is not running an SSH service, it is a plain TCP service expecting raw input:
+# This fails — port 30000 is not an SSH service
+ssh bandit15@localhost -p 30000
+The correct approach was Netcat:
+nc localhost 30000
+After the connection opened, I pasted the current level's password and pressed Enter. The server responded with the next password.
+
+SSH vs. Netcat
+
+Tool        Use Case
+ssh         Encrypted remote login with session management
+nc          Raw TCP/UDP connection — no protocol overhead
+telnet      Legacy unencrypted TCP communication
+
+Password obtained. [Not shared per OverTheWire rules]
+
+
+KEY TAKEAWAY : 
+
+Not all network services are SSH. Netcat is called the "Swiss Army knife of networking" because it can interact with any TCP or UDP service directly. It is used extensively in penetration testing, CTF challenges, and network diagnostics.
