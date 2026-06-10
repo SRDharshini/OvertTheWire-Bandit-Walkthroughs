@@ -22,12 +22,12 @@ cat ./maybehere07/.file2
 
 ## Command Breakdown
 
-| Flag | Meaning |
-|---|---|
-| `find .` | Search from current directory |
-| `-type f` | Match files only |
-| `-size 1033c` | Exactly 1033 bytes (`c` = bytes) |
-| `! -executable` | Exclude executable files |
+Flag               Meaning 
+
+ `find .`          Search from current directory 
+ `-type f`         Match files only 
+ `-size 1033c`     Exactly 1033 bytes (`c` = bytes) 
+ `! -executable`   Exclude executable files 
 
 > Password obtained. [Not shared per OverTheWire rules]
 
