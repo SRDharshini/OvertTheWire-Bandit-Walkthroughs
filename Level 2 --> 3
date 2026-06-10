@@ -1,19 +1,25 @@
-LEVEL 2 → 3 — READING A FILE WITH SPACES IN ITS NAME
+# Level 2 → 3 — Reading a File with Spaces in Its Name
 
+## Level Goal
+Read the password stored in a file called `spaces in this filename`.
 
-WHAT THIS LEVEL IS ABOUT :
+## Description
+Shells use spaces as argument separators. Without proper handling, each word in the filename is interpreted as a separate argument. This level teaches quoting and escaping techniques.
 
-The password is in a file named spaces in this filename. Shells use spaces as argument separators, so without proper handling, each word is interpreted as a separate argument. This level teaches quoting and escaping.
+## Approach
+After logging in as `bandit2`, running the command without quotes predictably failed. The correct approach was to quote the entire filename:
 
-
-APPROACH : 
-
-After logging in as bandit2, running cat --spaces in this filename predictably failed — the shell split it into multiple arguments. The correct approach was to quote the entire filename:
+```bash
 cat "./--spaces in this filename--"
+```
 
-Password obtained. [Not shared per OverTheWire rules]
+Alternatively, escape each space with a backslash:
 
+```bash
+cat spaces\ in\ this\ filename
+```
 
-KEY TAKEAWAY : 
+> Password obtained. [Not shared per OverTheWire rules]
 
-Wrapping a filename in double quotes forces the shell to treat the entire string as a single argument. Alternatively, each space can be escaped with a backslash: cat spaces\ in\ this\ filename. Tab completion handles this automatically and is the fastest approach in practice.
+## Key Takeaway
+Wrapping a filename in double quotes forces the shell to treat the entire string as a single argument. Tab completion handles escaping automatically and is the fastest approach in practice.
