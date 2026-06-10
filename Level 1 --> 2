@@ -1,0 +1,22 @@
+LEVEL 1 → 2 - READING A DAHS-NAMED FILE
+
+
+WHAT THIS LEVEL IS ABOUT : 
+
+The password is stored in a file literally named -. This is a classic Linux gotcha — a leading dash causes the shell to interpret the name as a command-line flag rather than a filename. Understanding how the shell parses arguments is a critical skill.
+
+
+APPROACH : 
+
+After logging in as bandit1, I confirmed the file existed:
+ls
+My first instinct was to try cat -, but this caused the terminal to hang, waiting for standard input (stdin) instead of reading the file. The fix was to use a relative path prefix:
+cat ./-
+This worked immediately and returned the password.
+
+Password obtained. [Not shared per OverTheWire rules]
+
+
+KEY TAKEAWAY : 
+
+./ tells the shell "this is a path in the current directory," not a flag. This applies to any tool — for example, rm ./- to delete such a file.
