@@ -1,12 +1,13 @@
-# Level 3 → 4 — Discovering a Hidden File
+# LEVEL 3 → 4 — DISCOVERING A HIDDEN FILE
 
-## Level Goal
+
+## LEVEL GOAL
 Find and read a hidden file inside the `inhere` directory.
 
-## Description
+## DESCRIPTION
 In Linux, any file prefixed with a dot (`.`) is hidden from standard directory listings. This level teaches the `-a` flag with `ls` to reveal hidden files — a skill directly applicable to system forensics and investigation.
 
-## Approach
+## APPROACH
 After logging in as `bandit3`, I navigated into the `inhere` directory:
 
 ```bash
@@ -27,5 +28,5 @@ cat ./...Hiding-From-You
 
 > Password obtained. [Not shared per OverTheWire rules]
 
-## Key Takeaway
+## KEY TAKEAWAY
 `ls -la` is the most informative listing command — it shows hidden files, permissions, ownership, and sizes simultaneously. Attackers and investigators both rely on this to surface files that standard views miss.
