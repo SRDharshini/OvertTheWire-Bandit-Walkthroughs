@@ -1,14 +1,15 @@
-LEVEL 7 → 8 — SEARCHING FILE CONTENTS WITH grep
+# Level 7 → 8 — Searching File Contents with grep
 
+## Level Goal
+Find the password stored in `data.txt` next to the word "millionth".
 
-WHAT THIS LEVEL IS ABOUT : 
+## Description
+The file contains thousands of lines, making manual inspection impractical. This level introduces `grep` — one of the most heavily used commands in Linux system administration and security.
 
-The password is in data.txt, on the line next to the word "millionth". The file contains thousands of lines, making manual inspection impractical. This level introduces grep, one of the most heavily used commands in Linux system administration and security.
-
-
-APPROACH : 
-
+## Approach
 I explored multiple methods during this level:
+
+```bash
 # Method 1 – Direct grep (most efficient)
 grep "millionth" data.txt
 
@@ -23,12 +24,11 @@ awk '/millionth/' data.txt
 
 # Method 5 – sed
 sed -n '/millionth/p' data.txt
+```
 
-All methods returned the same result. The direct grep call was the cleanest and most efficient.
+All methods returned the same result. The direct `grep` call was the cleanest and most efficient.
 
-Password obtained. [Not shared per OverTheWire rules]
+> Password obtained. [Not shared per OverTheWire rules]
 
-
-KEY TAKEAWAY : 
-
-grep is the go-to tool for searching log files, configuration files, and command output. In real-world security work it is used constantly — for example, filtering an access log for a specific IP address or searching tool output for vulnerable entries.
+## Key Takeaway
+`grep` is the go-to tool for searching log files, configuration files, and command output. In real-world security work it is used constantly — for example, filtering an access log for a specific IP address or searching tool output for vulnerable entries.
