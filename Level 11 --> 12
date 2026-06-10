@@ -1,0 +1,26 @@
+LEVEL 11 → 12 — DECODING ROT13
+
+
+WHAT THIS LEVEL IS ABOUT :
+
+All letters in data.txt have been shifted 13 positions — the ROT13 substitution cipher. Because the alphabet has 26 letters, ROT13 is its own inverse. This level uses the tr (translate) command for character mapping.
+
+
+APPROACH : 
+
+Reading the file revealed the ROT13-encoded string. I decoded it using:
+cat data.txt | tr 'A-Za-z' 'N-ZA-Mn-za-m'
+
+Command Breakdown
+
+Part              Meaning
+tr                Translate/substitute characters 
+'A-Za-z'          Original character set (all letters)
+'N-ZA-Mn-za-m'    ROT13 mapping — shifts each letter by 13
+
+Password obtained. [Not shared per OverTheWire rules]
+
+
+KEY TAKEAWAY : 
+
+tr is a versatile character translation tool. ROT13 appears frequently in CTFs as lightweight obfuscation. Understanding substitution ciphers is foundational for classical cryptography and more complex cipher analysis.
